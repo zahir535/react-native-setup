@@ -1,0 +1,10 @@
+# flow.yaml
+
+appId: org.reactjs.native.example.reactNativeBlocks
+---
+- launchApp
+- tapOn: "BasePage"
+- assertVisible:
+    text: "BaseScreen"
+    enabled: true
+- tapOn: "BaseScreen"
