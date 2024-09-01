@@ -1,0 +1,30 @@
+name: Pre-commit Github
+
+on:
+  push:
+    branches:
+      - '*' 
+  pull_request:
+    branches:
+      - '*' 
+
+jobs:
+  pre_commit:
+    name: Pre-commit Github
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Run linter
+        run: yarn lint || exit 1
+
