@@ -4,23 +4,40 @@
 
 import { AppRegistry } from "react-native";
 import App from "./App";
-import { name as appName } from "../app.json";
 import TrackPlayer from "react-native-track-player";
+import { PlaybackService } from "./services";
+import { name as appName } from "../app.json";
+import "mux.js";
 
-// const exampleTrack1 = {
-//   url: "https://cdn.simplecast.com/audio/56a1c6/56a1c6fa-abc9-487c-aed8-a71dbd067aef/95549871-c106-4073-826c-fd9a98f9f8e3/538274343_mamilospod_173_eu_nao_sou_racista_tc.mp3", // Load media from the network
-//   title: "Avaritia",
-//   artist: "deadmau5",
-//   album: "while(1<2)",
-//   genre: "Progressive House, Electro House",
-//   date: "2014-05-20T07:00:00+00:00", // RFC 3339
-//   artwork: "https://whvn.cc/jxp18w", // Load artwork from the network
-//   duration: 402, // Duration in seconds
-// };
-
-await TrackPlayer.setupPlayer();
-// await TrackPlayer.add([exampleTrack1]);
+// Inject stylesheet
+document.head.appendChild(style);
+/******************************************
+ * END: react-native-vector-icons import
+ ******************************************/
 
 AppRegistry.registerComponent(appName, () => App);
 
-// TrackPlayer.registerPlaybackService(() => require("./services"));
+TrackPlayer.registerPlaybackService(() => PlaybackService);
+
+// Error: Unable to resolve module ./index from /Users/zahir/Desktop/exploration/react-native-blocks/.:
+
+// None of these files exist:
+//   * index(.native|.ios.js|.native.js|.js|.ios.jsx|.native.jsx|.jsx|.ios.json|.native.json|.json|.ios.ts|.native.ts|.ts|.ios.tsx|.native.tsx|.tsx)
+//   * index/index(.native|.ios.js|.native.js|.js|.ios.jsx|.native.jsx|.jsx|.ios.json|.native.json|.json|.ios.ts|.native.ts|.ts|.ios.tsx|.native.tsx|.tsx)
+//     at ModuleResolver.resolveDependency (/Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/node-haste/DependencyGraph/ModuleResolution.js:114:15)
+//     at DependencyGraph.resolveDependency (/Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/node-haste/DependencyGraph.js:277:43)
+//     at /Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/lib/transformHelpers.js:169:21
+//     at Server._resolveRelativePath (/Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/Server.js:1045:12)
+//     at async Server.requestProcessor [as _processBundleRequest] (/Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/Server.js:449:37)
+//     at async Server._processRequest (/Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/Server.js:383:7)
+// Error: Unable to resolve module ./index from /Users/zahir/Desktop/exploration/react-native-blocks/.:
+
+// None of these files exist:
+//   * index(.native|.ios.js|.native.js|.js|.ios.jsx|.native.jsx|.jsx|.ios.json|.native.json|.json|.ios.ts|.native.ts|.ts|.ios.tsx|.native.tsx|.tsx)
+//   * index/index(.native|.ios.js|.native.js|.js|.ios.jsx|.native.jsx|.jsx|.ios.json|.native.json|.json|.ios.ts|.native.ts|.ts|.ios.tsx|.native.tsx|.tsx)
+//     at ModuleResolver.resolveDependency (/Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/node-haste/DependencyGraph/ModuleResolution.js:114:15)
+//     at DependencyGraph.resolveDependency (/Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/node-haste/DependencyGraph.js:277:43)
+//     at /Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/lib/transformHelpers.js:169:21
+//     at Server._resolveRelativePath (/Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/Server.js:1045:12)
+//     at async Server.requestProcessor [as _processBundleRequest] (/Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/Server.js:449:37)
+//     at async Server._processRequest (/Users/zahir/Desktop/exploration/react-native-blocks/node_modules/metro/src/Server.js:383:7)
