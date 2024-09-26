@@ -5,6 +5,8 @@ import { Colors } from "react-native/Libraries/NewAppScreen";
 import { flexChild } from "./styles";
 import { NavigationContainer } from "@react-navigation/native";
 import { RootNavigator } from "./navigation";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
@@ -14,12 +16,14 @@ function App(): JSX.Element {
   };
 
   return (
-    <NavigationContainer>
-      <SafeAreaView style={flexChild}>
-        <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} backgroundColor={backgroundStyle.backgroundColor} />
-        <RootNavigator />
-      </SafeAreaView>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <SafeAreaView style={flexChild}>
+          <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} backgroundColor={backgroundStyle.backgroundColor} />
+          <RootNavigator />
+        </SafeAreaView>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
